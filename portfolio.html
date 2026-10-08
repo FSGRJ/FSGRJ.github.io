@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FSGRJ | Portfolio GitHub</title>
+  <meta name="description" content="Portfolio profissional do perfil GitHub de FSGRJ" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="portfolio-styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <div class="portfolio-shell">
+    <header class="topbar">
+      <div class="brand-wrap">
+        <div class="brand-mark">F</div>
+        <div class="brand-copy">
+          <div class="eyebrow">Perfil profissional</div>
+          <h1>FSGRJ</h1>
+        </div>
+      </div>
+
+      <div class="topbar-actions">
+        <button class="ghost-button" id="downloadBtn">Baixar relatório</button>
+        <a class="primary-button" href="https://github.com/FSGRJ" target="_blank" rel="noreferrer">Abrir GitHub</a>
+      </div>
+    </header>
+
+    <main class="portfolio-grid">
+      <aside class="profile-panel">
+        <div class="profile-card">
+          <div class="profile-avatar-wrap">
+            <img id="avatar" alt="Avatar do usuário" />
+            <span class="online-dot"></span>
+          </div>
+
+          <div class="profile-name-block">
+            <h2 id="name">Carregando...</h2>
+            <p id="login" class="login">@carregando</p>
+          </div>
+
+          <p id="bio" class="bio">Carregando bio...</p>
+
+          <div class="profile-meta">
+            <div class="meta-item"><span>📍</span><span id="location">—</span></div>
+            <div class="meta-item"><span>🏢</span><span id="company">—</span></div>
+            <div class="meta-item"><span>🔗</span><span id="blog">—</span></div>
+            <div class="meta-item"><span>📆</span><span id="createdAt">—</span></div>
+          </div>
+        </div>
+
+        <div class="mini-card">
+          <div class="mini-header">
+            <span>Resumo executivo</span>
+          </div>
+          <div id="executiveSummary" class="summary-list"></div>
+        </div>
+      </aside>
+
+      <section class="content-panel">
+        <div class="metric-grid">
+          <div class="metric-card accent">
+            <div class="metric-label">Repositórios</div>
+            <div class="metric-value" id="reposMetric">0</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-label">Followers</div>
+            <div class="metric-value" id="followersMetric">0</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-label">Following</div>
+            <div class="metric-value" id="followingMetric">0</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-label">Estrelas</div>
+            <div class="metric-value" id="starsMetric">0</div>
+          </div>
+        </div>
+
+        <div class="section-card">
+          <div class="section-header">
+            <h3>Visão geral</h3>
+            <span class="section-tag">Perfil</span>
+          </div>
+          <ul id="overviewList" class="overview-list"></ul>
+        </div>
+
+        <div class="analytics-grid">
+          <div class="chart-box">
+            <div class="section-header compact">
+              <h3>Linguagens</h3>
+            </div>
+            <div class="chart-wrap"><canvas id="languageChart"></canvas></div>
+          </div>
+
+          <div class="chart-box">
+            <div class="section-header compact">
+              <h3>Top repositórios</h3>
+            </div>
+            <div class="chart-wrap"><canvas id="topReposChart"></canvas></div>
+          </div>
+        </div>
+
+        <div class="section-card">
+          <div class="section-header">
+            <h3>Repositórios</h3>
+            <span class="section-tag">Publicos</span>
+          </div>
+          <div id="repoList" class="repo-list"></div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="portfolio-script.js"></script>
+</body>
+</html>
