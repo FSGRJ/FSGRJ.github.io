@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FSGRJ | Premium Dashboard</title>
+  <meta name="description" content="Dashboard premium interativo do perfil GitHub de FSGRJ" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="premium-styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0/dist/chartjs-plugin-datalabels.min.js"></script>
+</head>
+<body>
+  <div class="premium-shell">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <div class="sidebar-top">
+        <div class="logo">
+          <div class="logo-mark">GH</div>
+          <div class="logo-text">
+            <div class="logo-main">GitHub</div>
+            <div class="logo-sub">Dashboard</div>
+          </div>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a href="#overview" class="nav-item active" data-section="overview">
+          <span class="nav-icon">📊</span>
+          <span>Overview</span>
+        </a>
+        <a href="#repos" class="nav-item" data-section="repos">
+          <span class="nav-icon">📚</span>
+          <span>Repositories</span>
+        </a>
+        <a href="#analytics" class="nav-item" data-section="analytics">
+          <span class="nav-icon">📈</span>
+          <span>Analytics</span>
+        </a>
+        <a href="#community" class="nav-item" data-section="community">
+          <span class="nav-icon">👥</span>
+          <span>Community</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="profile-mini">
+          <img id="avatarMini" alt="Avatar mini" />
+          <div class="profile-mini-info">
+            <div id="nameMini" class="profile-mini-name">FSGRJ</div>
+            <div class="profile-mini-status">🟢 Active</div>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Header -->
+      <header class="header">
+        <div class="header-left">
+          <h1>Dashboard</h1>
+          <p id="headerStatus" class="header-status">Carregando dados...</p>
+        </div>
+        <div class="header-right">
+          <div class="filter-group">
+            <label for="languageFilter" class="filter-label">Filter by Language</label>
+            <select id="languageFilter" class="filter-select">
+              <option value="">All Languages</option>
+            </select>
+          </div>
+        </div>
+      </header>
+
+      <!-- Overview Section -->
+      <section id="overview" class="section section-active">
+        <!-- Profile Card -->
+        <div class="profile-card-premium">
+          <div class="profile-header">
+            <div class="profile-avatar">
+              <img id="avatarLarge" alt="Avatar do usuário" />
+              <div class="profile-status">🟢</div>
+            </div>
+            <div class="profile-info">
+              <h2 id="nameProfile">Carregando...</h2>
+              <p id="loginProfile" class="profile-login">@carregando</p>
+              <p id="bioProfile" class="profile-bio">Carregando descrição...</p>
+
+              <div class="profile-meta-premium">
+                <div class="profile-meta-item">
+                  <span class="meta-icon">📍</span>
+                  <span id="locationProfile">-</span>
+                </div>
+                <div class="profile-meta-item">
+                  <span class="meta-icon">🏢</span>
+                  <span id="companyProfile">-</span>
+                </div>
+                <div class="profile-meta-item">
+                  <span class="meta-icon">🔗</span>
+                  <span id="blogProfile">-</span>
+                </div>
+                <div class="profile-meta-item">
+                  <span class="meta-icon">📅</span>
+                  <span id="createdProfile">-</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Stats Grid -->
+        <div class="stats-premium-grid">
+          <div class="stat-premium-card">
+            <div class="stat-icon">📦</div>
+            <div class="stat-info">
+              <div class="stat-label">Total Repositories</div>
+              <div class="stat-number" id="totalRepos">0</div>
+            </div>
+          </div>
+
+          <div class="stat-premium-card">
+            <div class="stat-icon">👥</div>
+            <div class="stat-info">
+              <div class="stat-label">Followers</div>
+              <div class="stat-number" id="followersStat">0</div>
+            </div>
+          </div>
+
+          <div class="stat-premium-card">
+            <div class="stat-icon">👤</div>
+            <div class="stat-info">
+              <div class="stat-label">Following</div>
+              <div class="stat-number" id="followingStat">0</div>
+            </div>
+          </div>
+
+          <div class="stat-premium-card">
+            <div class="stat-icon">⭐</div>
+            <div class="stat-info">
+              <div class="stat-label">Total Stars</div>
+              <div class="stat-number" id="starsStat">0</div>
+            </div>
+          </div>
+
+          <div class="stat-premium-card">
+            <div class="stat-icon">🔗</div>
+            <div class="stat-info">
+              <div class="stat-label">Public Gists</div>
+              <div class="stat-number" id="gistsStat">0</div>
+            </div>
+          </div>
+
+          <div class="stat-premium-card">
+            <div class="stat-icon">🎯</div>
+            <div class="stat-info">
+              <div class="stat-label">Active Repos</div>
+              <div class="stat-number" id="activeReposStat">0</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick Stats -->
+        <div class="two-column-grid">
+          <div class="card-premium">
+            <div class="card-header">
+              <h3>Overview</h3>
+            </div>
+            <ul id="overviewList" class="overview-list-premium"></ul>
+          </div>
+
+          <div class="card-premium">
+            <div class="card-header">
+              <h3>Profile Insights</h3>
+            </div>
+            <div id="insightsContent" class="insights-content"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Repositories Section -->
+      <section id="repos" class="section">
+        <div class="section-header">
+          <h2>Your Repositories</h2>
+          <p class="section-subtitle">All your public repositories</p>
+        </div>
+
+        <div class="repos-container">
+          <div class="card-premium repo-card-grid">
+            <div id="reposContent" class="repo-grid-content"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Analytics Section -->
+      <section id="analytics" class="section">
+        <div class="section-header">
+          <h2>Analytics</h2>
+          <p class="section-subtitle">Repository insights and trends</p>
+        </div>
+
+        <div class="two-column-grid">
+          <div class="card-premium">
+            <div class="card-header">
+              <h3>Programming Languages</h3>
+              <p class="chart-subtitle">Distribution across repositories</p>
+            </div>
+            <div class="chart-container">
+              <canvas id="languageChartPremium"></canvas>
+            </div>
+          </div>
+
+          <div class="card-premium">
+            <div class="card-header">
+              <h3>Repository Distribution</h3>
+              <p class="chart-subtitle">Types and status</p>
+            </div>
+            <div class="chart-container">
+              <canvas id="repoDistributionChart"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <div class="two-column-grid">
+          <div class="card-premium">
+            <div class="card-header">
+              <h3>Stars by Repository</h3>
+              <p class="chart-subtitle">Top 6 repositories by stars</p>
+            </div>
+            <div class="chart-container">
+              <canvas id="starsChart"></canvas>
+            </div>
+          </div>
+
+          <div class="card-premium">
+            <div class="card-header">
+              <h3>Activity Timeline</h3>
+              <p class="chart-subtitle">Repository updates over time</p>
+            </div>
+            <div class="chart-container">
+              <canvas id="activityChart"></canvas>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Community Section -->
+      <section id="community" class="section">
+        <div class="section-header">
+          <h2>Community</h2>
+          <p class="section-subtitle">Followers and people you follow</p>
+        </div>
+
+        <div class="two-column-grid">
+          <div class="card-premium">
+            <div class="card-header">
+              <h3>Followers</h3>
+              <p class="chart-subtitle" id="followerCount">0 followers</p>
+            </div>
+            <div id="followersList" class="people-grid"></div>
+          </div>
+
+          <div class="card-premium">
+            <div class="card-header">
+              <h3>Following</h3>
+              <p class="chart-subtitle" id="followingCount">0 following</p>
+            </div>
+            <div id="followingList" class="people-grid"></div>
+          </div>
+        </div>
+
+        <div class="card-premium">
+          <div class="card-header">
+            <h3>Starred Projects</h3>
+            <p class="chart-subtitle">Your favorite repositories</p>
+          </div>
+          <div id="starredList" class="starred-grid"></div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="premium-script.js"></script>
+</body>
+</html>
