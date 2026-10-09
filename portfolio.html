@@ -4,12 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>FSGRJ | Portfolio GitHub</title>
-  <meta name="description" content="Portfolio profissional do perfil GitHub de FSGRJ" />
-
+  <meta name="description" content="Portfolio profissional e dashboard do perfil GitHub de FSGRJ" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
-
   <link rel="stylesheet" href="portfolio-styles.css" />
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 </head>
@@ -19,7 +17,7 @@
       <div class="brand-wrap">
         <div class="brand-mark">F</div>
         <div class="brand-copy">
-          <div class="eyebrow">Perfil profissional</div>
+          <div class="eyebrow">Portfolio profissional</div>
           <h1>FSGRJ</h1>
         </div>
       </div>
@@ -62,6 +60,21 @@
       </aside>
 
       <section class="content-panel">
+        <div class="hero-card">
+          <div class="hero-text">
+            <span class="hero-badge">Perfil em destaque</span>
+            <h2>Construindo soluções com foco em produtividade, documentação e desenvolvimento prático.</h2>
+            <p>
+              Este portfolio reúne meus projetos públicos, indicadores de contribuição e áreas de atuação no GitHub,
+              com foco em tecnologia, automação, documentação e desenvolvimento profissional.
+            </p>
+            <div class="hero-actions">
+              <a class="primary-button" href="https://github.com/FSGRJ" target="_blank" rel="noreferrer">Ver repos</a>
+              <button class="ghost-button" id="downloadSecondary">Gerar relatório</button>
+            </div>
+          </div>
+        </div>
+
         <div class="metric-grid">
           <div class="metric-card accent">
             <div class="metric-label">Repositórios</div>
@@ -81,6 +94,14 @@
           </div>
         </div>
 
+        <div class="stack-card">
+          <div class="section-header">
+            <h3>Stack & habilidades</h3>
+            <span class="section-tag">Tecnologias</span>
+          </div>
+          <div id="stackList" class="stack-list"></div>
+        </div>
+
         <div class="section-card">
           <div class="section-header">
             <h3>Visão geral</h3>
@@ -94,21 +115,25 @@
             <div class="section-header compact">
               <h3>Linguagens</h3>
             </div>
-            <div class="chart-wrap"><canvas id="languageChart"></canvas></div>
+            <div class="chart-wrap">
+              <canvas id="languageChart"></canvas>
+            </div>
           </div>
 
           <div class="chart-box">
             <div class="section-header compact">
               <h3>Top repositórios</h3>
             </div>
-            <div class="chart-wrap"><canvas id="topReposChart"></canvas></div>
+            <div class="chart-wrap">
+              <canvas id="topReposChart"></canvas>
+            </div>
           </div>
         </div>
 
         <div class="section-card">
           <div class="section-header">
             <h3>Repositórios</h3>
-            <span class="section-tag">Publicos</span>
+            <span class="section-tag">Públicos</span>
           </div>
           <div id="repoList" class="repo-list"></div>
         </div>
